@@ -15,3 +15,8 @@ https://www.investopedia.com/terms/r/rsi.asp
 This two indicators are only Basic indicator, showing the evolution of the rate of rise/fall of a stock. Thus results won't be crazy.
 
 The bot will be deployed and running on heroku .
+
+
+### requirements
+
+```! pip install -r requirements.txt ```
