@@ -17,6 +17,8 @@ This two indicators are only Basic indicator, showing the evolution of the rate 
 The bot will be deployed and running on heroku .
 
 
+Open the python file basic_trading_bot.py with a notebook.
+
 ### requirements
 
 ```! pip install -r requirements.txt ```
