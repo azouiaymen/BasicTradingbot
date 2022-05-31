@@ -39,3 +39,35 @@ def technical_analysis(df):
   technical_analysis(df)
 
   df
+
+
+class signal:
+
+  def __init__(self,df,lags):
+      self.df = df
+      self.lags = lags
+
+  def get_signal(self):
+    dfx = pd.DataFrame()
+
+    for i in range(self.lags + 1):
+      mask = (self.df['%K'].shift(i) < 20) & (self.df['%D'].shift(i) < 20) 
+      dfx = dfx.append(mask, ignore_index=True)
+    
+    return dfx.sum(axis=0)
+
+  def order(self):
+    self.df['Trigger'] = np.where(self.get_signal(),1,0)
+    self.df['Buy'] = np.where((self.df.Trigger) & 
+                              (self.df['%K'].between(20,80)) &
+                              (self.df['%D'].between(20,80)) &
+                              (self.df.rsi > 50) &
+                              (self.df.macd >0),1,0)
+                              
+
+inst = signal(df,25)
+
+
+inst.order
+
+df
