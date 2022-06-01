@@ -19,6 +19,9 @@ The bot will be deployed and running on heroku .
 
 Open the python file basic_trading_bot.py with a notebook.
 
+
+doing a video about this !
+
 ### requirements
 
 ```! pip install -r requirements.txt ```
