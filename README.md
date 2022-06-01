@@ -19,6 +19,8 @@ The bot will be deployed and running on heroku .
 
 Open the python file basic_trading_bot.py with a notebook.
 
+Create a demo/test account to try the strategy first with this [link](https://testnet.binance.vision/key/generate)
+
 
 doing a video about this !
 

@@ -8,8 +8,16 @@ import time
 api_key = apikey.API_KEY
 api_secret = apikey.API_SECRET
 
+# create a demo/test account for the strategy 
+# on https://testnet.binance.vision/key/generate
+
+API_KEY='UFhyo8BlYtNNCUVBCG4SHb1zEb4bkjP2y9wz6S6nohRX9Vtt111QBwboRpELxpZf'
+
+API_SECRET='TKKCupDzjdztIp3bzui1u0XeeJWE4J71X0J5InmS6lvYNc3JRaUGeb7LXiMJcikL'
+
+
 # create a connection with API
-client = Client(api_key,api_secret)
+client = Client(API_KEY,API_SECRET)
 
 
 # fetch the minute data
