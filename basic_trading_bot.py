@@ -77,6 +77,9 @@ inst.order()
 inst.df
 
 
+inst.df.iloc[-1]
+
+
 def strategy(pair,qte,open_position = False):
   df = get_minute_data(pair,'1m','100')
   technical_analysis(df)
@@ -90,15 +93,17 @@ def strategy(pair,qte,open_position = False):
                                 quantity=qte)
     print(order)
     buyprice = float(order['fills'][0]['price'])
+    stoploss = buyprice*0.997
+    takeprofit = buyprice*1.005
     open_position = True
     while open_position :
-      time.sleep(0.5)
+      time.sleep(1)
       df = get_minute_data(pair,'1m','2')
       print(f'current Close '+ str(df.Close.iloc[-1]))
       print(f'current Target '+ str(df.Close.iloc[-1]*1.005))
       print(f'current Stop is '+ str(df.Close.iloc[-1]*0.997))
 
-      if df.Close.iloc[-1] <= buyprice*0.997 & df.Close[-1] >= buyprice[-1]*1.005 :
+      if (df.Close[-1] <= stoploss) & (df.Close[-1] >= takeprofit) :
         order = client.create_order(symbol=pair,
                                 side='SELL',
                                 type='MARKET',
@@ -107,5 +112,5 @@ def strategy(pair,qte,open_position = False):
         break
 
 
-
-strategy("ADAUSDT",1)
+while True:
+  strategy("ETHUSDT",0.2)
