@@ -1,0 +1,1 @@
+worker: python basic_trading_bot.py
